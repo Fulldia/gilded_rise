@@ -6,7 +6,7 @@ quality = qualité du produit (entier) jamais supérieur a 50 %
 */
 
 class Item {
-  constructor(name, sellIn, quality){
+  constructor(name, sellIn, quality) {
     this.name = name;
     this.sellIn = sellIn;
     this.quality = quality;
@@ -22,20 +22,25 @@ class Item {
     this.sellIn--
     this.decreaseQuality(1)
   }
-  decreaseQuality(indice){
+
+  decreaseQuality(indice) {
     const minQuality = 0
-    if (this.quality > minQuality){
-      if (this.sellIn <= 0){
-        this.quality = this.quality-2
-        if (this.quality < 0){
-          this.quality = 0
+    if (this.quality > minQuality) {
+
+      if (this.sellIn <= 0) {
+
+        this.quality = this.quality - indice;
+        if (this.quality < 0) {
+
+          this.quality = 0;
         }
-      }else{
+      } else {
         this.quality = this.quality - indice
+        console.log("sssssssssssssssss")
       }
     }
 
-//
+    //
   }
 
 
@@ -44,21 +49,21 @@ class Item {
 qualité augmente jusqu'a 50 max et sellin decremente
 */
 class AgedBrie extends Item {
-  updateQuality(){
-    this.name="Aged Brie";
+  updateQuality() {
+    this.name = "Aged Brie";
     const maxQuality = 50
     this.sellIn--
-    if (this.quality < maxQuality){
+    if (this.quality < maxQuality) {
       this.quality++
     }
   }
 }
 
 class Sulfura extends Item {
-  constructor(name, sellIn, quality){
+  constructor(name, sellIn, quality) {
     super("Sulfuras, Hand of Ragnaros", 100, 80)
   }
-  updateQuality(){
+  updateQuality() {
     this.quality = this.quality;
     this.sellIn = this.sellIn;
 
@@ -71,22 +76,25 @@ class Sulfura extends Item {
 
 */
 class Backstage extends Item {
-  updateQuality(){
-    this.name="Backstage passes to a TAFKAL80ETC concert";
+  updateQuality() {
+    this.name = "Backstage passes to a TAFKAL80ETC concert";
     this.sellIn--
 
     const dix = 10
     const cinq = 5
     const finConcert = 0
-    
-    if (this.sellIn <= finConcert){
+
+    if (this.sellIn <= finConcert) {
       this.quality = 0
     }
-    else if (this.sellIn <= cinq){
+    else if (this.sellIn <= cinq) {
       this.quality = this.quality + 3
-    } 
+    }
     else if (this.sellIn <= dix) {
       this.quality = this.quality + 2
+    }
+    else {
+      this.quality = this.quality + 1
     }
   }
 }
@@ -100,9 +108,9 @@ class Conjured extends Item {
 
 
 class Shop {
-  constructor(items=[]){
+  constructor(items = []) {
     this.items = items;
-  } 
+  }
   updateQuality() {
     this.items.map(item => {
       item.updateQuality()
