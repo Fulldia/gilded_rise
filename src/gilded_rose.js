@@ -56,7 +56,7 @@ class AgedBrie extends Item {
 
 class Sulfura extends Item {
   constructor(name, sellIn, quality){
-    super("Sulfuras, Hand of Ragnaros", 100, 100)
+    super("Sulfuras, Hand of Ragnaros", 100, 80)
   }
   updateQuality(){
     this.quality = this.quality;
