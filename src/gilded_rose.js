@@ -1,5 +1,9 @@
 
-
+/*
+name = nom du produit (chaine de caractère)
+sellin = nombre de jours avant peremption (entier)
+quality = qualité du produit (entier) jamais supérieur a 50 %
+*/
 
 class Item {
   constructor(name, sellIn, quality){
@@ -7,11 +11,18 @@ class Item {
     this.sellIn = sellIn;
     this.quality = quality;
   }
+  /*
+  En fonction de l'age du produit on update sellin et quality
+  
+  Aged brie = qualité augmente a mesure qu'il vieillit
+  Sulfuras jamais vendu et qualité fixe
+
+  */
   updateQuality() {
-    //update nom
-    //updtae sellIn
-    //update quality
-    
+    this.sellIn--
+    this.decreaseQuality(1)
+  }
+  decreaseQuality(indice){
       if (this.name != 'Aged Brie' && this.name != 'Backstage passes to a TAFKAL80ETC concert' && this.name != 'Sulfuras, Hand of Ragnaros')  {
         console.log("test entrrreeeeeeeeeeeeeeeeeeeeeee");
         if (this.quality > 0) {
@@ -61,6 +72,58 @@ class Item {
 
 
 }
+/*
+qualité augmente jusqu'a 50 max et sellin decremente
+*/
+class AgedBrie extends Item {
+  updateQuality(){
+    const maxQuality = 50
+    this.sellIn--
+    if (this.quality < maxQuality){
+      this.quality++
+    }
+  }
+}
+
+class Sulfura extends Item {
+  constructor(name, sellIn, quality){
+    super(name, sellIn, 100)
+  }
+  //updateQuality(){}
+}
+
+
+/*
+  Backstage passes to a TAFKAL80ETC concert augmente en qualité a mesure que la date de perremption approche +2 lorsque sellin =<10 || +3 =<5 || 0 sellin ==0
+
+*/
+class Backstage extends Item {
+  updateQuality(){
+    this.sellIn--
+
+    const dix = 10
+    const cinq = 5
+    const finConcert = 0
+    
+    if (this.sellIn <= finConcert){
+      this.quality = 0
+    }
+    else if (this.sellIn <= cinq){
+      this.quality = this.quality + 3
+    } 
+    else if (this.sellIn <= dix) {
+      this.quality = this.quality + 2
+    }
+  }
+}
+
+class Conjured extends Item {
+  updateQuality() {
+    this.sellIn--
+    this.decreaseQuality(2)
+  }
+}
+
 
 class Shop {
   constructor(items=[]){
