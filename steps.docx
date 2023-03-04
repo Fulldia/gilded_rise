@@ -1,5 +1,7 @@
 Stratégie de refactorization  - Gilded Rose
 
+Nous avons décidé d'appliquer la méthode SOLID, ainsi que les principes du Clean Code, dans le but de refactorer sans douleur le code déjà existant.
+
 Les différentes étapes suivies :
 -	Test du code initial (-> Correction sur le premier test  “foo”)
 -	Déplacer la fonction updateQuality dans items car elle agit sur items. (principe de la méthode SOLID = Principe de responsibilité unique)
