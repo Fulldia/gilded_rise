@@ -18,56 +18,24 @@ class Item {
   Sulfuras jamais vendu et qualité fixe
 
   */
-  updateQuality() {
+  updateQuality(indice) {
     this.sellIn--
-    this.decreaseQuality(1)
+    this.decreaseQuality(indice)
   }
   decreaseQuality(indice){
-      if (this.name != 'Aged Brie' && this.name != 'Backstage passes to a TAFKAL80ETC concert' && this.name != 'Sulfuras, Hand of Ragnaros')  {
-        console.log("test entrrreeeeeeeeeeeeeeeeeeeeeee");
-        if (this.quality > 0) {
-            this.quality = this.quality - 1;
+    const minQuality = 0
+    if (this.quality > minQuality){
+      if (this.sellIn <= 0){
+        this.quality = this.quality-2
+        if (this.quality < 0){
+          this.quality = 0
         }
-      } else {
-        if (this.quality < 50) {
-          this.quality = this.quality + 1;
-          if (this.name == 'Backstage passes to a TAFKAL80ETC concert') {
-            if (this.sellIn < 11) {
-              if (this.quality < 50) {
-                this.quality = this.quality + 1;
-              }
-            }
-            if (this.sellIn < 6) {
-              if (this.quality < 50) {
-                this.quality = this.quality + 1;
-              }
-            }
-          }
-        }
+      }else{
+        this.quality = this.quality - 1
       }
-      if (this.name != 'Sulfuras, Hand of Ragnaros') {
-        this.sellIn = this.sellIn - 1;
-      }
-      if (this.sellIn < 0) {
-        if (this.name != 'Aged Brie') {
-          if (this.name != 'Backstage passes to a TAFKAL80ETC concert') {
-            if (this.quality > 0) {
-              if (this.name != 'Sulfuras, Hand of Ragnaros') {
-                this.quality = this.quality - 1;
-              }
-            }
-          } else {
-            this.quality = this.quality - this.quality;
-          }
-        } else {
-          if (this.quality < 50) {
-            this.quality = this.quality + 1;
-          }
-        }
-      
     }
 
-    return this.items;
+//
   }
 
 
@@ -77,6 +45,7 @@ qualité augmente jusqu'a 50 max et sellin decremente
 */
 class AgedBrie extends Item {
   updateQuality(){
+    this.name="Aged Brie";
     const maxQuality = 50
     this.sellIn--
     if (this.quality < maxQuality){
@@ -87,7 +56,7 @@ class AgedBrie extends Item {
 
 class Sulfura extends Item {
   constructor(name, sellIn, quality){
-    super(name, sellIn, 100)
+    super("Sulfuras, Hand of Ragnaros", sellIn, 100)
   }
   //updateQuality(){}
 }
@@ -99,6 +68,7 @@ class Sulfura extends Item {
 */
 class Backstage extends Item {
   updateQuality(){
+    this.name="Backstage passes to a TAFKAL80ETC concert";
     this.sellIn--
 
     const dix = 10
@@ -140,5 +110,8 @@ class Shop {
 
 module.exports = {
   Item,
-  Shop
+  Shop,
+  AgedBrie,
+  Sulfura,
+  Backstage
 }
