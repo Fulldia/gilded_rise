@@ -26,18 +26,17 @@ class Item {
   decreaseQuality(indice) {
     const minQuality = 0
     if (this.quality > minQuality) {
-
       if (this.sellIn <= 0) {
-
         this.quality = this.quality - indice;
         if (this.quality < 0) {
-
           this.quality = 0;
         }
       } else {
         this.quality = this.quality - indice
-        console.log("sssssssssssssssss")
       }
+    }
+    else{
+      console.log("La qualité ne peut pas être négative")
     }
 
     //

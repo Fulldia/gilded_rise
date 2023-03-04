@@ -80,8 +80,10 @@ describe("Gilded Rose", function() {
     expect(items[0].quality).toBe(0);
   });
   it("if conjured, quality = -1 should return quality -1 ", () => {
+    const consoleSpy = jest.spyOn(console, 'log');
     const gilded = new Shop([new Conjured("Conjured", 0, -1)])
     const items = gilded.updateQuality();
-    expect(items[0].quality).toBe(-1);
+    expect(consoleSpy).toHaveBeenCalledWith("La qualité ne peut pas être négative");
+    consoleSpy.mockRestore();
   });
 });
