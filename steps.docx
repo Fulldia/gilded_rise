@@ -1,0 +1,9 @@
+Stratégie de refactorization  - Gilded Rose
+
+Les différentes étapes suivies :
+-	Test du code initial (-> Correction sur le premier test  “foo”)
+-	Déplacer la fonction updateQuality dans items car elle agit sur items. (principe de la méthode SOLID = Principe de responsibilité unique)
+-	Découplage : Découper les produits en classes (Principe de subtitution de Liskov)
+-	Traitement des erreurs
+-	Tests unitaires 
+-	Lisibilité du code : rédaction de commentaires
