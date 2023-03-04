@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1677936016545" clover="3.2.0">
+  <project timestamp="1677936016545" name="All files">
+    <metrics statements="36" coveredstatements="17" conditionals="16" coveredconditionals="4" methods="11" coveredmethods="6" elements="63" coveredelements="27" complexity="0" loc="36" ncloc="36" packages="1" files="1" classes="1"/>
+    <file name="gilded_rose.js" path="D:\Documents\YNOV\TEST UNITAIRE\GildedRose-Refactoring-Kata-main\GildedRose-Refactoring-Kata-main\js-jest\gildedrise-git\gilded_rise\src\gilded_rose.js">
+      <metrics statements="36" coveredstatements="17" conditionals="16" coveredconditionals="4" methods="11" coveredmethods="6"/>
+      <line num="3" count="5" type="stmt"/>
+      <line num="4" count="5" type="stmt"/>
+      <line num="5" count="5" type="stmt"/>
+      <line num="9" count="4" type="stmt"/>
+      <line num="10" count="4" type="stmt"/>
+      <line num="14" count="4" type="stmt"/>
+      <line num="15" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="17" count="2" type="stmt"/>
+      <line num="18" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="22" count="0" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="34" count="0" type="stmt"/>
+      <line num="36" count="0" type="stmt"/>
+      <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="38" count="0" type="stmt"/>
+      <line num="45" count="0" type="stmt"/>
+      <line num="53" count="0" type="stmt"/>
+      <line num="55" count="0" type="stmt"/>
+      <line num="56" count="0" type="stmt"/>
+      <line num="57" count="0" type="stmt"/>
+      <line num="59" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="60" count="0" type="stmt"/>
+      <line num="62" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="63" count="0" type="stmt"/>
+      <line num="65" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="66" count="0" type="stmt"/>
+      <line num="73" count="0" type="stmt"/>
+      <line num="74" count="0" type="stmt"/>
+      <line num="82" count="4" type="stmt"/>
+      <line num="85" count="4" type="stmt"/>
+      <line num="86" count="4" type="stmt"/>
+      <line num="89" count="2" type="stmt"/>
+      <line num="96" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
