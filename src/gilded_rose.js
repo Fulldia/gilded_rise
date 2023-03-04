@@ -18,9 +18,9 @@ class Item {
   Sulfuras jamais vendu et qualité fixe
 
   */
-  updateQuality(indice) {
+  updateQuality() {
     this.sellIn--
-    this.decreaseQuality(indice)
+    this.decreaseQuality(1)
   }
   decreaseQuality(indice){
     const minQuality = 0
@@ -31,7 +31,7 @@ class Item {
           this.quality = 0
         }
       }else{
-        this.quality = this.quality - 1
+        this.quality = this.quality - indice
       }
     }
 
@@ -56,9 +56,13 @@ class AgedBrie extends Item {
 
 class Sulfura extends Item {
   constructor(name, sellIn, quality){
-    super("Sulfuras, Hand of Ragnaros", sellIn, 100)
+    super("Sulfuras, Hand of Ragnaros", 100, 100)
   }
-  //updateQuality(){}
+  updateQuality(){
+    this.quality = this.quality;
+    this.sellIn = this.sellIn;
+
+  }
 }
 
 
@@ -113,5 +117,6 @@ module.exports = {
   Shop,
   AgedBrie,
   Sulfura,
-  Backstage
+  Backstage,
+  Conjured
 }

@@ -1,4 +1,4 @@
-const {Shop, Item, AgedBrie,Sulfura,Backstage} = require("../src/gilded_rose");
+const {Shop, Item, AgedBrie,Sulfura,Backstage, Conjured} = require("../src/gilded_rose");
 
 describe("Gilded Rose", function() {
   it("should foo", function() {
@@ -18,7 +18,7 @@ describe("Gilded Rose", function() {
     const items = gilded.updateQuality();
     expect(items[0].sellIn).toBe(1);
     expect(items[0].quality).toBe(1);
-  })
+  });
 
 
 
@@ -28,12 +28,37 @@ describe("Gilded Rose", function() {
     const items = gildedRose.updateQuality();
     expect(items[0].name).toBe("Sulfuras, Hand of Ragnaros");
   });
+  it("sulfura sellIn 100 & quality 1 should return sellIn 100 & quality 100 ", () => {
+    const gilded = new Shop([new Sulfura("Sulfuras, Hand of Ragnaro", 100, 1)])
+    const items = gilded.updateQuality();
+    expect(items[0].sellIn).toBe(100);
+    expect(items[0].quality).toBe(100);
+  });
 
 
   //Backstage
-  it("should sulfura", function() {
+  it("should backstage", function() {
     const gildedRose = new Shop([new Backstage("Aged Brdsdsdie", 0, 60)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).toBe("Backstage passes to a TAFKAL80ETC concert");
+  });
+  it("backstage sellIn 100 & quality 1 should return sellIn 100 & quality 100 ", () => {
+    const gilded = new Shop([new Backstage("Backstage passes to a TAFKAL80ETC concert", 10, 5)])
+    const items = gilded.updateQuality();
+    expect(items[0].sellIn).toBe(9);
+    expect(items[0].quality).toBe(7);
+  });
+  it("backstage sellIn 100 & quality 1 should return sellIn 100 & quality 100 ", () => {
+    const gilded = new Shop([new Backstage("Backstage passes to a TAFKAL80ETC concert", 2, 5)])
+    const items = gilded.updateQuality();
+    expect(items[0].sellIn).toBe(1);
+    expect(items[0].quality).toBe(8);
+  });
+  // Conjured
+  it("if conjured, quality 10 should return quality 8 ", () => {
+    const gilded = new Shop([new Conjured("Conjured", 30, 10)])
+    const items = gilded.updateQuality();
+    expect(items[0].sellIn).toBe(29);
+    expect(items[0].quality).toBe(8);
   });
 });
